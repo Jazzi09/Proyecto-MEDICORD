@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MedicoComponent } from './medico/medico.component';
-import { PatientsListComponent } from './patients-list/patients-list.component';
-import { MedicoService } from './servicios/medico.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -32,8 +29,6 @@ import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
-    MedicoComponent,
-    PatientsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +70,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatCardModule
   ],
-  providers: [MedicoService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
