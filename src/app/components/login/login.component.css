@@ -3,15 +3,19 @@
     justify-content: center;
     height: 100%;
     align-items: center;
-    background: #1F4749
+    background: #2c2e43;
 }
 
 .login-card {
     width: 100%;
-    max-width: 330px;
+    max-width: 380px;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #F7F7F7
+}
+
+.button {
+    width: 30%;
 }
 
 .form-field {
@@ -29,6 +33,6 @@
 }
 
 .mat-success {
-    background-color: #1F4749;
+    background-color: #2c2e43;
     color: #F7F7F7;
 }

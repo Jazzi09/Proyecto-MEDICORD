@@ -1,8 +1,8 @@
 <div class="body">
     <div>
         <mat-card class="login-card">
+            <img src="./assets/images/logocolor.png" width="90%">
             <form [formGroup]="form" (ngSubmit)="ingresar()">
-                <img src="./assets/images/logomedicord.png" width="100%">
                 <h2>Iniciar Sesión</h2>
                 <mat-form-field class="form-field" appearance="fill">
                     <mat-label>Usuario</mat-label>
@@ -17,7 +17,7 @@
                 </mat-form-field>
                 <h5 class="password">¿Olvidaste la contraseña?</h5>
                 <br>
-                <button type="submit" mat-raised-button color="success" [disabled]="form.invalid">Ingresar</button>
+                <button class="button" type="submit" mat-raised-button color="success" [disabled]="form.invalid">Ingresar</button>
                 <h5 class="registro">Registrate aquí</h5>
             </form>
         </mat-card>
