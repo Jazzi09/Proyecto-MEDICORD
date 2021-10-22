@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material.module';
+import { NgParticlesModule } from 'ng-particles';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     MaterialModule,
+    NgParticlesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
