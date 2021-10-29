@@ -15,6 +15,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
     declarations: [],
@@ -33,7 +37,10 @@ import { MatCardModule } from '@angular/material/card';
         MatPaginatorModule,
         MatSortModule,
         MatDialogModule,
-        MatCardModule
+        MatCardModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatListModule
     ],
     exports: [
         MatToolbarModule,
@@ -49,7 +56,10 @@ import { MatCardModule } from '@angular/material/card';
         MatPaginatorModule,
         MatSortModule,
         MatDialogModule,
-        MatCardModule
+        MatCardModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatListModule
     ]
 })
 

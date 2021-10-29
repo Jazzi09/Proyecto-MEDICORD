@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material.module';
 import { NgParticlesModule } from 'ng-particles';
+import { LayoutModule } from '@angular/cdk/layout';
+import { HammerModule } from "@angular/platform-browser";
+import { IgxCalendarModule } from 'igniteui-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +15,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { LoginComponent } from './components/login/login.component';
-
 
 
 @NgModule({
@@ -30,6 +32,9 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     AngularFireModule,
     AngularFireDatabaseModule,
+    LayoutModule,
+    HammerModule,
+    IgxCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
