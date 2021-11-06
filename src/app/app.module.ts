@@ -24,17 +24,17 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     MaterialModule,
     NgParticlesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,
     AngularFireModule,
     AngularFireDatabaseModule,
     LayoutModule,
     HammerModule,
-    IgxCalendarModule
+    IgxCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

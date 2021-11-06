@@ -15,9 +15,10 @@ export class NavbarComponent implements OnInit {
 
   options: FormGroup
 
-  constructor(fb: FormBuilder,
-    public observer: BreakpointObserver
-    ) {
+  constructor(
+    fb: FormBuilder,
+    public observer: BreakpointObserver,
+  ) {
     this.options = fb.group({
       bottom: 0,
       fixed: false,

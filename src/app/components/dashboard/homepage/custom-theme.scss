@@ -34,25 +34,25 @@ $custom-palette: igx-palette(
 $border-color: igx-color($color: grays, $variant: 300);
 
 .calendar-wrapper {
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 250px;
+    min-width: 220px;
     border: 1px solid $border-color;
-    border-radius: 6px;
-    margin: 8px;
+    border-radius: 10px;
+    margin: 15px;
 }
 
 .igx-calendar {
     font-size: x-small;
     display: block;
-    margin-left: 15px;
+    margin-left: 0px;
     height: 100%;
     width: 100%;
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: igx-elevation($elevation: 4);
 }
 
 $custom-calendar-theme: igx-calendar-theme(
-    $header-background: #345779,
+    $header-background: #002b5c,
     $content-background: #fdfdfd,
     $header-text-color: #ffffff,
     $date-current-text-color: #2dabe8,

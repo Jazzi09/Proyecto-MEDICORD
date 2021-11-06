@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientsComponent } from './patients/patients.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PatientsComponent } from './patients/patients.component';
     CommonModule,
     MaterialModule,
     DashboardRoutingModule,
-    IgxCalendarModule
+    IgxCalendarModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }
