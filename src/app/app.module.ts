@@ -12,9 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { LoginComponent } from './components/login/login.component';
+import { environment } from 'src/environments/environment';
+import { PatientComponent } from './components/dashboard/patients/patient/patient.component';
 
 
 @NgModule({
@@ -24,19 +26,20 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     MaterialModule,
     NgParticlesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    AngularFireModule,
-    AngularFireDatabaseModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     LayoutModule,
     HammerModule,
     IgxCalendarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PatientComponent]
 })
 export class AppModule { }

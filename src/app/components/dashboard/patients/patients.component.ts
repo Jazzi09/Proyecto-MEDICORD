@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { events } from '@syncfusion/ej2-calendars';
 import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { PatientComponent } from './patient/patient.component';
 
 
 @Component({
@@ -24,6 +26,7 @@ export class PatientsComponent implements OnInit {
 
   constructor(
     public pacienteService: PacienteService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -41,4 +44,14 @@ export class PatientsComponent implements OnInit {
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
+  onCreate() {
+    const dialogRef = this.dialog.open(PatientComponent, {
+      width: "80%",
+      height: "90%",
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Lista de pacientes')
+    })
+  }
 }

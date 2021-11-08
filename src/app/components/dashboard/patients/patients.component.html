@@ -1,6 +1,6 @@
 <div class="container">
     <div class="search-div">
-        <button mat-raised-button class="creat-button"><mat-icon>add</mat-icon>Create</button>
+        <button mat-raised-button (click)="onCreate()" class="creat-button"><mat-icon>add</mat-icon>Create</button>
         <mat-form-field class="search-form-field" floatLabel="never">
             <input matInput placeholder="Search" autocomplete="off" (keyup)="applyFilter($event)">
             <button mat-button matSuffix mat-icon-button aria-label="Clear"><mat-icon>clear</mat-icon></button>

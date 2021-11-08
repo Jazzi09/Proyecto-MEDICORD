@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientsComponent } from './patients/patients.component';
 import { FormsModule } from '@angular/forms';
+import { PatientComponent } from './patients/patient/patient.component';
+import { HistoryComponent } from './patients/history/history.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent,
     NavbarComponent,
     HomepageComponent,
-    PatientsComponent
+    PatientsComponent,
+    PatientComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,
