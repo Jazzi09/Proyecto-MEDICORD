@@ -1,12 +1,17 @@
-.mat-stepper-horizontal {
-    margin-top: 8px;
+.stepper {
     width: 100%;
 }
 
 .mat-form-field {
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
-.stepper {
-    width: 100%;
+.buttons {
+    width: 40px;
+    margin-top: 15px;
+}
+
+.checkbox {
+    display: block;
+    margin: 0 12px;
 }

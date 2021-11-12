@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientsComponent } from './patients/patients.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientComponent } from './patients/patient/patient.component';
 import { HistoryComponent } from './patients/history/history.component';
 
@@ -26,7 +26,8 @@ import { HistoryComponent } from './patients/history/history.component';
     MaterialModule,
     DashboardRoutingModule,
     IgxCalendarModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

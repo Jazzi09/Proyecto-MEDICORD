@@ -19,8 +19,13 @@
     width: 90%;
 }
 
-th {
-    width: 20%;
+.large {
+    width: 27.5%;
+    height: auto;
+}
+
+.short {
+    width: 15%;
     height: auto;
 }
 

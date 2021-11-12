@@ -16,22 +16,29 @@ import { PatientComponent } from './patient/patient.component';
 })
 export class PatientsComponent implements OnInit {
 
+  constructor(
+    public pacienteService: PacienteService,
+    public dialog: MatDialog,
+  ) { }
+
   listData: Paciente[] =[];
   searchKey: string = " ";
-  displayedColumns: string[] = ['name', 'lastname', 'email', 'number', 'actions'];
-  dataSource!: MatTableDataSource<any>;
+  displayedColumns: string[] = ['nombre', 'edad', 'correo', 'telefono', 'actions'];
+  dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(
-    public pacienteService: PacienteService,
-    public dialog: MatDialog
-  ) { }
-
   ngOnInit() {
-    this.listData = this.pacienteService.getPaciente();
-    this.dataSource = new MatTableDataSource(this.listData)
+    this.pacienteService.getPaciente().subscribe(doc => {
+      this.listData = [];
+      doc.forEach((element: any) => {
+        this.listData.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        });
+      })
+    })
   }
 
   ngAfterViewInit() {
@@ -40,13 +47,14 @@ export class PatientsComponent implements OnInit {
   }
 
   applyFilter(event: Event) {
+    this.dataSource = new MatTableDataSource(this.listData);
     this.searchKey = (event.target as HTMLInputElement).value;
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
   onCreate() {
     const dialogRef = this.dialog.open(PatientComponent, {
-      width: "80%",
+      width: "100%",
       height: "90%",
     });
 
@@ -54,4 +62,5 @@ export class PatientsComponent implements OnInit {
       console.log('Lista de pacientes')
     })
   }
+
 }
