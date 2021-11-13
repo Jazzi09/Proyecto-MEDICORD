@@ -2,9 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { events } from '@syncfusion/ej2-calendars';
-import { pipe, of } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
 import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";

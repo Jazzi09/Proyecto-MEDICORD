@@ -10,7 +10,6 @@ import { PatientsComponent } from './patients/patients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientComponent } from './patients/patient/patient.component';
 import { HistoryComponent } from './patients/history/history.component';
-import { SearchfilterPipe } from 'src/app/pipes/searchfilter.pipe';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { SearchfilterPipe } from 'src/app/pipes/searchfilter.pipe';
     PatientsComponent,
     PatientComponent,
     HistoryComponent,
-    SearchfilterPipe
   ],
   imports: [
     CommonModule,
