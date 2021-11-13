@@ -2,12 +2,12 @@
     <div class="search-div">
         <button mat-raised-button (click)="onCreate()" class="creat-button"><mat-icon>add</mat-icon>Create</button>
         <mat-form-field class="search-form-field" floatLabel="never">
-            <input matInput placeholder="Search" autocomplete="off" (keyup)="applyFilter($event)">
+            <input matInput type="text" placeholder="Search" autocomplete="off" [(ngModel)]="searchKey" name="filtro" (keyup)="applyFilter()">
             <button mat-button matSuffix mat-icon-button aria-label="Clear"><mat-icon>clear</mat-icon></button>
         </mat-form-field>
     </div>
     <div class="table-wrapp mat-elevation-z8">
-        <table mat-table [dataSource]="listData" matSort>
+        <table mat-table matSort [dataSource]="listData">
 
             <ng-container matColumnDef="nombre" >
               <th mat-header-cell *matHeaderCellDef mat-sort-header class="large"> Nombre </th>
@@ -41,6 +41,6 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" [pageSize]="8" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 8, 10]" [pageSize]="8"></mat-paginator>
     </div>
 </div>

@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { events } from '@syncfusion/ej2-calendars';
+import { pipe, of } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
@@ -16,13 +18,15 @@ import { PatientComponent } from './patient/patient.component';
 })
 export class PatientsComponent implements OnInit {
 
+  
+
   constructor(
     public pacienteService: PacienteService,
     public dialog: MatDialog,
   ) { }
 
-  listData: Paciente[] =[];
-  searchKey: string = " ";
+  listData: Paciente[]= [];
+  searchKey: any;
   displayedColumns: string[] = ['nombre', 'edad', 'correo', 'telefono', 'actions'];
   dataSource: MatTableDataSource<any>;
 
@@ -41,15 +45,14 @@ export class PatientsComponent implements OnInit {
     })
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(event: Event) {
-    this.dataSource = new MatTableDataSource(this.listData);
-    this.searchKey = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  applyFilter() {
+    if (this.searchKey == "") {
+      this.ngOnInit();
+    } else {
+      this.listData = this.listData.filter(res => {
+        return res.nombre.toLowerCase().match(this.searchKey.toLowerCase());
+      })
+    }
   }
 
   onCreate() {
@@ -59,7 +62,7 @@ export class PatientsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Lista de pacientes')
+      console.log('')
     })
   }
 

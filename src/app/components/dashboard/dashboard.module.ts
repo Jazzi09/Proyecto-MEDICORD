@@ -10,6 +10,7 @@ import { PatientsComponent } from './patients/patients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientComponent } from './patients/patient/patient.component';
 import { HistoryComponent } from './patients/history/history.component';
+import { SearchfilterPipe } from 'src/app/pipes/searchfilter.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HistoryComponent } from './patients/history/history.component';
     HomepageComponent,
     PatientsComponent,
     PatientComponent,
-    HistoryComponent
+    HistoryComponent,
+    SearchfilterPipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import { HistoryComponent } from './patients/history/history.component';
     DashboardRoutingModule,
     IgxCalendarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class DashboardModule { }
