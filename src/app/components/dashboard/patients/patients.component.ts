@@ -6,6 +6,7 @@ import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { PatientComponent } from './patient/patient.component';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -15,22 +16,25 @@ import { PatientComponent } from './patient/patient.component';
 })
 export class PatientsComponent implements OnInit {
 
-  
-
   constructor(
     public pacienteService: PacienteService,
     public dialog: MatDialog,
+    public notificationService: NotificationService
   ) { }
 
   listData: Paciente[]= [];
   searchKey: any;
   displayedColumns: string[] = ['nombre', 'edad', 'correo', 'telefono', 'actions'];
-  dataSource: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit() {
+    this.getData();
+  };
+
+  getData() {
     this.pacienteService.getPaciente().subscribe(doc => {
       this.listData = [];
       doc.forEach((element: any) => {
@@ -39,6 +43,7 @@ export class PatientsComponent implements OnInit {
           ...element.payload.doc.data()
         });
       })
+      
     })
   }
 
@@ -61,6 +66,18 @@ export class PatientsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('')
     })
+  }
+
+  onDelete(id: string) {
+    this.pacienteService.deletePaciente(id).then(() => {
+      this.notificationService.warn('Historial eliminado')
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  onEdit(paciente: Paciente) {
+    this.pacienteService.addPacienteEdit(paciente);
   }
 
 }

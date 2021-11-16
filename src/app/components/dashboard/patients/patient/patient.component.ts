@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Paciente } from 'src/app/interfaces/paciente';
 import { NotificationService } from 'src/app/services/notification.service';
 import { PacienteService } from 'src/app/services/paciente.service';
@@ -15,6 +13,9 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class PatientComponent implements OnInit {
 
+  form = FormGroup;
+  titulo = "Nuevo Historial Clínico";
+
   constructor(
     public service: PacienteService,
     public notificationService: NotificationService,
@@ -22,7 +23,11 @@ export class PatientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
+    this.service.getPacienteEdit().subscribe(data => {
+      this.titulo = "Modificar Historial Clínico";
+
+      })
+    }
 
   onSubmit() {
     if (this.service.formOne.valid) {

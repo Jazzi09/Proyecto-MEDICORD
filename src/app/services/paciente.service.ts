@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Agent } from 'http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Paciente } from '../interfaces/paciente';
 
 @Injectable({
@@ -15,6 +15,8 @@ export class PacienteService {
   formThree: FormGroup;
   formFour: FormGroup;
   formFive: FormGroup;
+
+  public paciente$ = new Subject<any>();
 
   constructor(
     public fb: FormBuilder,
@@ -212,5 +214,17 @@ export class PacienteService {
     }, error => {
       console.log(error);
     })
+  }
+
+  deletePaciente(id: string): Promise<any> {
+    return this.firebase.collection('pacientes').doc(id).delete();
+  }
+
+  addPacienteEdit(paciente: Paciente) {
+    this.paciente$.next(paciente);
+  }
+
+  getPacienteEdit(): Observable<Paciente> {
+    return this.paciente$.asObservable();
   }
 }
