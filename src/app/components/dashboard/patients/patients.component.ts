@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig, MatDialogRef } from "@angular/material/dialog";
 import { PatientComponent } from './patient/patient.component';
 import { NotificationService } from 'src/app/services/notification.service';
 
@@ -32,7 +32,10 @@ export class PatientsComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
-  };
+    this.pacienteService.getPacienteEdit().subscribe(data => {
+      console.log(data);
+    })
+  }
 
   getData() {
     this.pacienteService.getPaciente().subscribe(doc => {
@@ -76,8 +79,18 @@ export class PatientsComponent implements OnInit {
     })
   }
 
+
+  //FUNCION FEA Q NO SIRVE
   onEdit(paciente: Paciente) {
-    this.pacienteService.addPacienteEdit(paciente);
+    console.log(paciente)
+    this.pacienteService.editPaciente(paciente);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(PatientComponent, dialogConfig)
+    
+    //const editdialog = this.dialog.open(PatientComponent);
+    //this.pacienteService.editPaciente(paciente)
   }
 
 }

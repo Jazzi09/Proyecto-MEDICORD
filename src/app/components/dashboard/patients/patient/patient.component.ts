@@ -15,6 +15,7 @@ export class PatientComponent implements OnInit {
 
   form = FormGroup;
   titulo = "Nuevo Historial Clínico";
+  id: string | undefined;
 
   constructor(
     public service: PacienteService,
@@ -23,11 +24,18 @@ export class PatientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getPacienteEdit().subscribe(data => {
-      this.titulo = "Modificar Historial Clínico";
+    this.OnDit;
+  }
 
-      })
-    }
+  OnDit() {
+    this.service.getPacienteEdit().subscribe(data => {
+      console.log(data);
+      this.dialog.open;
+      this.titulo = "Editar Historial Clínico";
+    })
+
+    
+  }
 
   onSubmit() {
     if (this.service.formOne.valid) {

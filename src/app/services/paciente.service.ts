@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Agent } from 'http';
 import { Observable, Subject } from 'rxjs';
 import { Paciente } from '../interfaces/paciente';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class PacienteService {
   constructor(
     public fb: FormBuilder,
     public firebase: AngularFirestore,
-    ) {
+  ) {
 
     this.formOne = this.fb.group({
       nombre: ['', Validators.required],
@@ -152,6 +152,10 @@ export class PacienteService {
     return this.firebase.collection('pacientes').snapshotChanges();
   }
 
+  allPacientes(){
+    this.firebase.collection('pacientes');
+  }
+
   addPaciente(paciente: Paciente): Promise<any> {
     return this.firebase.collection('pacientes').add(paciente)
     
@@ -227,4 +231,21 @@ export class PacienteService {
   getPacienteEdit(): Observable<Paciente> {
     return this.paciente$.asObservable();
   }
+
+  editPaciente(paciente: Paciente) {
+    this.formOne.setValue(paciente)
+    this.formTwo.setValue(paciente)
+    this.formThree.setValue(paciente)
+    this.formFour.setValue(paciente)
+    this.formFive.setValue(paciente)
+  }
+
+  populateForm(paciente: Paciente) {
+    this.formOne.setValue(_.pickBy(paciente, _.isString));
+    this.formTwo.setValue(_.omitBy(paciente, _.isEmpty));
+    this.formThree.setValue(_.omitBy(paciente, _.isEmpty));
+    this.formFour.setValue(_.omitBy(paciente, _.isEmpty));
+    this.formFive.setValue(_.omitBy(paciente, _.isEmpty));
+  }
 }
+
