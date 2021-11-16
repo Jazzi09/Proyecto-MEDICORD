@@ -232,15 +232,9 @@ export class PacienteService {
     return this.paciente$.asObservable();
   }
 
-  editPaciente(paciente: Paciente) {
-    this.formOne.setValue(paciente)
-    this.formTwo.setValue(paciente)
-    this.formThree.setValue(paciente)
-    this.formFour.setValue(paciente)
-    this.formFive.setValue(paciente)
-  }
 
-  populateForm(paciente: Paciente) {
+  //ESTO ES LO Q  CREO Q NO SIRVE
+  editPaciente(paciente: Paciente) {
     this.formOne.setValue(_.pickBy(paciente, _.isString));
     this.formTwo.setValue(_.omitBy(paciente, _.isEmpty));
     this.formThree.setValue(_.omitBy(paciente, _.isEmpty));
