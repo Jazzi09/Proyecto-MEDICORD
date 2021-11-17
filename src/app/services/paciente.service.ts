@@ -16,6 +16,7 @@ export class PacienteService {
   formFour: FormGroup;
   formFive: FormGroup;
 
+
   public paciente$ = new Subject<any>();
 
   constructor(
@@ -235,11 +236,10 @@ export class PacienteService {
 
   //ESTO ES LO Q  CREO Q NO SIRVE
   editPaciente(paciente: Paciente) {
-    this.formOne.setValue(_.pickBy(paciente, _.isString));
+    this.formOne.setValue(_.omit(paciente, 'id'));
     this.formTwo.setValue(_.omitBy(paciente, _.isEmpty));
     this.formThree.setValue(_.omitBy(paciente, _.isEmpty));
     this.formFour.setValue(_.omitBy(paciente, _.isEmpty));
     this.formFive.setValue(_.omitBy(paciente, _.isEmpty));
   }
 }
-

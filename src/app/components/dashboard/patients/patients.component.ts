@@ -64,6 +64,7 @@ export class PatientsComponent implements OnInit {
     const dialogRef = this.dialog.open(PatientComponent, {
       width: "100%",
       height: "90%",
+      disableClose: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -83,11 +84,14 @@ export class PatientsComponent implements OnInit {
   //FUNCION FEA Q NO SIRVE
   onEdit(paciente: Paciente) {
     console.log(paciente)
-    this.pacienteService.editPaciente(paciente);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    this.dialog.open(PatientComponent, dialogConfig)
+    dialogConfig.width = "90%";
+    dialogConfig.height = "90%";
+    this.dialog.open(PatientComponent, dialogConfig);
+    this.pacienteService.editPaciente(paciente);
+    
     
     //const editdialog = this.dialog.open(PatientComponent);
     //this.pacienteService.editPaciente(paciente)
