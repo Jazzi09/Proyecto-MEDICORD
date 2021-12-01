@@ -16,11 +16,11 @@
                     
                     <h4 class="subtitle">Pacientes</h4>
                     <mat-card>
-                        <button mat-raised-button class="buttons">
+                        <button mat-raised-button class="buttons" routerLink="/dashboard/patients">
                             <img src="./assets/images/folder.png" class="icon">
                             <h2 class="options">Ver lista de pacientes</h2> 
                         </button>
-                        <button mat-raised-button class="buttons">
+                        <button mat-raised-button class="buttons" routerLink="/dashboard/patients" (click)="onCreate()">
                             <img src="./assets/images/list.png" class="icon">
                             <h2 class="options">Añadir historial</h2>
                         </button>
@@ -31,8 +31,8 @@
                     </mat-card>
                     
                     <h4 class="subtitle">Documentos</h4>
-                    <mat-card>
-                        card 3
+                    <mat-card style="text-align: left;">
+                        No hay documentos
                     </mat-card>
                 </div>
             </div>
@@ -42,8 +42,9 @@
         <div class="calendar-wrapper">
             <igx-calendar [weekStart]="1"></igx-calendar>
         </div>
-        <mat-card class="right-side">
-            
+        <mat-card class="right-side" style="padding: 15px;">
+            <h4 style="font-weight: bold;"> Notificaciones </h4>
+            <h5> No hay notificaciones para mostrar</h5>
         </mat-card>
     </div> 
 </div>

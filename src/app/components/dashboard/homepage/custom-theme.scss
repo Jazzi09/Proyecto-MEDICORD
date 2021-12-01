@@ -38,7 +38,8 @@ $border-color: igx-color($color: grays, $variant: 300);
     min-width: 220px;
     border: 1px solid $border-color;
     border-radius: 10px;
-    margin: 15px;
+    margin-left: 15px;
+    margin-top: 0px;
 }
 
 .igx-calendar {

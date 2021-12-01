@@ -61,10 +61,9 @@ table {
         margin-top: 10px;
     }
     .search-form-field {
-        width: 75%;
-        height: 38px;
+        width: 70%;
+        height: 36px;
         margin-left: 15px;
-        padding-left: 20px;
         padding: 0px 20px;
         background-color: whitesmoke;
         border-radius: 5px;

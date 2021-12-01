@@ -6,6 +6,7 @@ import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
 import { MatDialog, MatDialogConfig, MatDialogRef } from "@angular/material/dialog";
 import { PatientComponent } from './patient/patient.component';
+import { HistoryComponent } from './history/history.component';
 import { NotificationService } from 'src/app/services/notification.service';
 
 
@@ -19,11 +20,11 @@ export class PatientsComponent implements OnInit {
   constructor(
     public pacienteService: PacienteService,
     public dialog: MatDialog,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
   ) { }
 
   listData: Paciente[]= [];
-  searchKey: any;
+  searchKey: string;
   displayedColumns: string[] = ['nombre', 'edad', 'correo', 'telefono', 'actions'];
   dataSource!: MatTableDataSource<any>;
 
@@ -48,6 +49,11 @@ export class PatientsComponent implements OnInit {
       })
       
     })
+  }
+
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
   }
 
   applyFilter() {
@@ -80,21 +86,25 @@ export class PatientsComponent implements OnInit {
     })
   }
 
+  onView(paciente: Paciente) {
+    const dialogRef = this.dialog.open(HistoryComponent, {
+      width: "100%",
+      height: "90%",
+      disableClose: false,
+      autoFocus: true,
+    });
+    this.pacienteService.addPacienteEdit(paciente);
+  }
 
-  //FUNCION FEA Q NO SIRVE
   onEdit(paciente: Paciente) {
-    console.log(paciente)
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "90%";
-    dialogConfig.height = "90%";
-    this.dialog.open(PatientComponent, dialogConfig);
-    this.pacienteService.editPaciente(paciente);
-    
-    
-    //const editdialog = this.dialog.open(PatientComponent);
-    //this.pacienteService.editPaciente(paciente)
+    const dialogRef = this.dialog.open(PatientComponent, {
+      width: "100%",
+      height: "90%",
+      disableClose: false,
+      autoFocus: true,
+    });
+    this.pacienteService.addPacienteEdit(paciente);
+    this.pacienteService.getPacienteData(paciente)
   }
 
 }

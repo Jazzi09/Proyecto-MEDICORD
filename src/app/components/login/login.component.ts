@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     const usuario = this.form.value.usuario;
     const contraseña = this.form.value.contraseña;
 
-    if (usuario == "usuario04" && contraseña == "contraseña") {
+    if (usuario == "6656489" && contraseña == "contraseña") {
       this.loading();
     } else {
       this.error();

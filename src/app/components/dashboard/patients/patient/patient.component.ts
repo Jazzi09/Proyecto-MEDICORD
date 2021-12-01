@@ -13,8 +13,8 @@ import { PacienteService } from 'src/app/services/paciente.service';
 })
 export class PatientComponent implements OnInit {
 
-  form = FormGroup;
-  titulo = "Nuevo Historial Clínico";
+  form: FormGroup;
+  titulo = this.service.titulo;
   id: string | undefined;
 
   constructor(
@@ -23,23 +23,11 @@ export class PatientComponent implements OnInit {
     public dialog: MatDialog,
   ) { }
 
-  ngOnInit(): void {
-    this.OnDit;
-  }
-
-  OnDit() {
-    this.service.getPacienteEdit().subscribe(data => {
-      console.log(data);
-      this.dialog.open;
-      this.titulo = "Editar Historial Clínico";
-    })
-
-    
-  }
+  ngOnInit(): void { }
 
   onSubmit() {
     if (this.service.formOne.valid) {
-      this.service.createPaciente()}
+      this.service.guardarPaciente()}
       this.service.formOne.reset();
       this.service.formTwo.reset();
       this.service.formThree.reset();
