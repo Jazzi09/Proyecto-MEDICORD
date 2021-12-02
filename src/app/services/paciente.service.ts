@@ -27,7 +27,7 @@ export class PacienteService {
   ) {
 
     this.formOne = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.maxLength(60)]],
       nss: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       sexo: ['', ],
       edad: ['', Validators.required],
