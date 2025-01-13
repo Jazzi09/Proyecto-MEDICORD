@@ -20,26 +20,25 @@ import { PatientComponent } from './components/dashboard/patients/patient/patien
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-  ],
-  imports: [
-    BrowserModule,
-    MaterialModule,
-    NgParticlesModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    LayoutModule,
-    HammerModule,
-    IgxCalendarModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [PatientComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+    ],
+    imports: [
+        BrowserModule,
+        MaterialModule,
+        NgParticlesModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        LayoutModule,
+        HammerModule,
+        IgxCalendarModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
