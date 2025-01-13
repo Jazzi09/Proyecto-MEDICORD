@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
@@ -13,10 +13,10 @@ export class NavbarComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  options: FormGroup
+  options: UntypedFormGroup
 
   constructor(
-    fb: FormBuilder,
+    fb: UntypedFormBuilder,
     public observer: BreakpointObserver,
   ) {
     this.options = fb.group({

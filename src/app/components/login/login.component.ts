@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup
+  form: UntypedFormGroup
   hide = true
 
   constructor(
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     public _snackBar: MatSnackBar,
     public router: Router
     ) {
