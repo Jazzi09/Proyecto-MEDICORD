@@ -4,9 +4,10 @@ import { Paciente } from 'src/app/interfaces/paciente'
 import { PacienteService } from 'src/app/services/paciente.service';
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+    selector: 'app-history',
+    templateUrl: './history.component.html',
+    styleUrls: ['./history.component.css'],
+    standalone: false
 })
 export class HistoryComponent implements OnInit {
 

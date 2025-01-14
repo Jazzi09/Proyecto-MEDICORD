@@ -3,9 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { PatientComponent } from '../patients/patient/patient.component';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css', './custom-theme.scss']
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    styleUrls: ['./homepage.component.css', './custom-theme.scss'],
+    standalone: false
 })
 export class HomepageComponent {
   
